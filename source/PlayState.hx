@@ -418,7 +418,7 @@ class PlayState extends MusicBeatState
 					stageCurtains.updateHitbox();
 					add(stageCurtains);
 				}
-					case 'ally1':
+					case 'alley1':
 
 					if(ClientPrefs.songbackgrounds){
 						var bg:BGSprite = new BGSprite('modbackgrounds/garello/garStagebg', -500, -170, 0.7, 0.7);
