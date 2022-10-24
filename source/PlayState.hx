@@ -418,6 +418,57 @@ class PlayState extends MusicBeatState
 					stageCurtains.updateHitbox();
 					add(stageCurtains);
 				}
+					case 'ally1':
+
+					if(ClientPrefs.songbackgrounds){
+						var bg:BGSprite = new BGSprite('modbackgrounds/garello/garStagebg', -500, -170, 0.7, 0.7);
+						bg.antialiasing = true;
+						bg.active = false;
+						add(bg);
+
+						var bgAlley:BGSprite = new BGSprite('modbackgrounds/garello/garStage', -500, -200, 0.9, 0.9);
+						bgAlley.antialiasing = true;
+						bgAlley.active = false;
+						add(bgAlley);
+					} else {
+						var noback = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+						add(noback);
+					}
+
+					case 'alleydead':
+
+					if(ClientPrefs.songbackgrounds){
+
+						var smoker:FlxSprite = new FlxSprite(0, -290);
+						smoker.frames = Paths.getSparrowAtlas('modbackgrounds/garello/garSmoke');
+						smoker.setGraphicSize(Std.int(smoker.width * 1.7));
+						smoker.alpha = 0.3;
+						smoker.animation.addByPrefix('garsmoke', "smokey", 13);
+						smoker.animation.play('garsmoke');
+						smoker.scrollFactor.set(0.7, 0.7);
+						add(smoker);
+
+						var bg:FlxSprite = new FlxSprite(-500, -170).loadGraphic(Paths.image('modbackgrounds/garello/garStagebgAlt'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(0.7, 0.7);
+						bg.active = false;
+						add(bg);
+	
+						var bgAlley:FlxSprite = new FlxSprite(-500, -200).loadGraphic(Paths.image('modbackgrounds/garello/garStagealt'));
+						bgAlley.antialiasing = true;
+						bgAlley.scrollFactor.set(0.9, 0.9);
+						bgAlley.active = false;
+						add(bgAlley);
+	
+						var corpse:FlxSprite = new FlxSprite(-230, 540).loadGraphic(Paths.image('modbackgrounds/garello/gardead'));
+						corpse.antialiasing = true;
+						corpse.scrollFactor.set(0.9, 0.9);
+						corpse.active = false;
+						add(corpse);	
+					} else {
+						var noback = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+						add(noback);
+					}
 
 			case 'spooky': //Week 2
 				if(!ClientPrefs.lowQuality) {
